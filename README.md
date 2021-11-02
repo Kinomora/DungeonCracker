@@ -1,18 +1,23 @@
-# Dungeon Cracker v1.1.0
+# Dungeon Cracker v2.0.2
 
-Supports all versions of minecraft (infdev, alpha, beta, and full releases up to 1.17.X)
+Supports all versions of minecraft (alpha 1.0.4 through 1.17.1) - will be updated as new versions are released
 Crack a world seed from a single dungeon for worlds generated after 1.13, and just 2 dungeons for worlds generated before 1.13.
 
 Credits to KaptainWutax, Matthew Bolan, Neil, and the good people at MC@Home for putting up with me
 
 # Run 
 
-- Go to releases and download the jar
-- Run by executing: `java -jar UniversalDungeonCracker_1.1.0.jar`
+- Go to the Releases panel to the right and download the executable file (windows) or the jar file (all platforms)
+- Run the executable just like any other file
+- or
+- Run the jar by executing: `java -jar UniversalDungeonCracker_2.0.2.jar` within the folder you downloaded the file from
+- *to run in text-only mode, type `java -jar UniversalDungeonCracker_2.0.2.jar nogui` instead
+
+Instructions for the GUI version are included in the Info tab within the app
 
 (Compiled using Java 8)
 
-# How To Use
+# How To Use TEXT-ONLY mode
 This app has multiple modes, Dungeon Data Mode and Dungeon Seed Mode
 
 The mode will be selected after choosing a version and dungeon quantity.

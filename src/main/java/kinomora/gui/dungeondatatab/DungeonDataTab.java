@@ -311,6 +311,7 @@ public class DungeonDataTab extends JPanel implements ActionListener, MouseListe
     }
 
     public void crackDungeonSeed(int dungeon) {
+        spawnerDataPanel.crackDungeonSeed.setText("Working...");
         saveCurrentDungeonCoords(spawnerDataPanel.spawnerXField.getText(), spawnerDataPanel.spawnerYField.getText(), spawnerDataPanel.spawnerZField.getText());
 
         System.out.println("\nDungeon 1: " + dungeon1x + " " + dungeon1y + " " + dungeon1z + " " + dungeon1Sequence + " " + spawnerDataPanel.dungeon1Biome + "\nDungeon 2: " + dungeon2x + " " + dungeon2y + " " + dungeon2z + " " + dungeon2Sequence + " " + spawnerDataPanel.dungeon2Biome);
@@ -366,11 +367,13 @@ public class DungeonDataTab extends JPanel implements ActionListener, MouseListe
                 }
             }
         }
+        spawnerDataPanel.crackDungeonSeed.setText("Dungeon Seed");
     }
 
     public void crackSeed() {
         JTextArea worldSeedsTextArea = new JTextArea();
         worldSeedsTextArea.setEditable(false);
+        crackSeedButton.setText("Working...");
 
         //Added checking code to stop the app from running if crack seed is pressed without any data put into the floor
         if (doubleSpawnerMode) {
@@ -417,6 +420,7 @@ public class DungeonDataTab extends JPanel implements ActionListener, MouseListe
                 }
             }
         }
+        crackSeedButton.setText("Crack Seed");
     }
 
     private boolean isSequenceAll2s(String sequence) {

@@ -21,6 +21,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
@@ -129,12 +130,14 @@ public class Main {
         System.out.println("Available for free at github.com/Kinomora/DungeonCracker");
         System.out.println("===================================================================================");
 
+        CustomSeedFindingCode(false);
+
 
         //If args list is empty we just go straight to the GUI version of the app
         if (!Arrays.asList(args).contains("nogui") && !Arrays.asList(args).contains("test")) {
 
             GUI.pack();
-            GUI.setSize(700, 650);
+            GUI.setSize(625, 525);
             GUI.setResizable(false);
             GUI.setVisible(true);
             GUI.setLocationRelativeTo(null);
@@ -563,6 +566,49 @@ public class Main {
 
     public static String getAppVersion() {
         return Main.APP_VERSION;
+    }
+
+    public static void CustomSeedFindingCode(boolean run) {
+        if (run) {
+            //Base Data
+            int x = 270; //spawner block coordinates
+            int y = 66;
+            int z = -189;
+            int fsx = 9; //dungeon width, east-to-west
+            int fsz = 7; //dungeon length, north-to-south
+            MCVersion version = MCVersion.va1_0_17_04;
+            Biome biome = Biomes.THE_VOID;
+            String seq = "222222220111222100102211111121220112111011211100220222222222222";
+
+            Set<Long> AllWorldSeeds = new HashSet<>();
+            Set<Long> WorldSeeds = new HashSet<>();
+
+            //If you already have the dungeon seeds add them here
+            Set<Long> DungeonSeeds = new HashSet<>();
+            DungeonSeeds.add(203892244806818L); //Uncomment these if you want to add in your own list of dungeon seeds
+            DungeonSeeds.add(17676860331192L);
+            DungeonSeeds.add(95141091213511L);
+            DungeonSeeds.add(73100743848468L);
+            DungeonSeeds.add(264453511818850L);
+            DungeonSeeds.add(18208020594847L);
+
+            //Dungeon Data to Dungeon Seed conversion
+            /*DungeonSeeds.addAll(new DungeonDataProcessor(version, x, y, z, seq, fsx, fsz).dungeonDataToDecoratorSeed()); //Comment this out if you have added your own list of dungeon seeds*/
+
+            //Dungeon Seed to World Seed conversion
+            for (long dseed : DungeonSeeds) {
+                WorldSeeds.addAll(new StructureSeedProcessor(new DecoratorSeedProcessor(version, x, z, biome, Collections.singleton(dseed)).decoratorSeedsToStructureSeeds()).getWorldSeedsFromStructureSeeds());
+                System.out.println("All world seeds for dungeon seed [" + dseed + "]: " + WorldSeeds);
+                AllWorldSeeds.addAll(WorldSeeds);
+                WorldSeeds.clear();
+            }
+
+            if(DungeonSeeds.size() == 1)
+                System.out.println("All possible world seeds for the given dungeon seed: " + AllWorldSeeds);
+            else
+                System.out.println("All possible world seeds for all " + DungeonSeeds.size() + " dungeon seeds: " + AllWorldSeeds);
+            System.exit(0);
+        }
     }
 
     /* Cobble = 0; Moss = 1; Unknown = 2

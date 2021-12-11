@@ -3,6 +3,8 @@
 Supports all versions of minecraft (alpha 1.0.4 through 1.17.1) - will be updated as new versions are released
 Crack a world seed from a single dungeon for worlds generated after 1.13, and just 2 dungeons for worlds generated before 1.13.
 
+*1.18+ is not going to be supported for the foreseeable future due to massive changes to how structure spawning works.
+
 Credits to KaptainWutax, Matthew Bolan, Neil, and the good people at MC@Home for putting up with me
 
 # Run 

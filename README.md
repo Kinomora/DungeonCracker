@@ -54,10 +54,10 @@ After completing the first column, you move onto the 2nd column, and so on, unti
 
 # FAQ's
 ### Will this work with a modded world?
-This app does not support modded worlds. Try if you want, but you will almost certainly not get a result.
+This app does not support modded worlds because if any mod changes generation at all, it will not match vanilla- which this code is based off. Try if you want, but I cannot offer support for modded saves **even if** you have the modpack.
 ### How can I be sure it's working properly?
-I have many testing dungeon data sets at the bottom of src/main/java/neil/Main.java, try one out.
+I have many testing dungeon data sets at the bottom of src/main/java/kinomora/Main.java, try one out.
 ### Why do some versions need 2 dungeons?
 Older versions are less "unique" with dungeons. Using only 1 dungeon would result in thousands of potential world seeds while 2 dungeons allow us to cross-reference this list and find a singular unique worldseed.
 ### I put in my dungeon and I'm sure it's right but the app says "unfortunately no seeds were found"!
-Sometimes other structures like mineshafts, lava lakes, and even other dungeons can alter the way dungeons generate. Unfortunately, that dungeon will not work with this app and you will need to use a different one.
+Sometimes other structures like mineshafts, lava lakes, and even other dungeons can alter the way dungeons generate. Unfortunately, one of your dungeons is invalid will not work with this app and you will need to find a different one.
